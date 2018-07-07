@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_bg"
+    android:layout_width="491dp"
+    android:layout_height="129dp"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="126dp"
+        android:layout_weight="3"
+        android:gravity="center">
+
+        <TextView
+            android:text="F1"
+            android:id="@+id/textF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/theme_green"
+            android:textSize="24sp" />
+
+        <TextView
+            android:text="餐盘中"
+            android:id="@+id/textList"
+            android:textColor="#414141"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_below="@+id/textList"
+            android:layout_width="match_parent"
+            android:layout_height="3dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="126dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:text="A区"
+            android:id="@+id/letterList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/theme_green"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_below="@+id/letterList"
+            android:layout_width="match_parent"
+            android:layout_height="3dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

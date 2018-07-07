@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/square_check_selector"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:padding="10dp"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/checkbox"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_task_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:singleLine="true"
+                android:text="任务名称"
+                android:textColor="#5a5a5a"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/tv_task_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_task_name"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                android:ellipsize="end"
+                android:maxLength="100"
+                android:maxLines="1"
+                android:text="任务描述"
+                android:textColor="#5a5a5a"
+                android:textSize="23sp" />
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
+
+    </LinearLayout>

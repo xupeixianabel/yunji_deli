@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Deli</string>
+
+
+
+
+    <string name="main_add_zone">添加区域</string>
+    <string name="main_click_choose">点击选择</string>
+    <string name="main_a_zone">A区</string>
+    <string name="main_b_zone">B区</string>
+    <string name="main_c_zone">C区</string>
+    <string name="main_d_zone">D区</string>
+
+    <string name="main_plate_up">餐盘(上)</string>
+    <string name="main_plate_mid">餐盘(中)</string>
+    <string name="main_plate_down">餐盘(下)</string>
+
+    <string name="info_release_estop">请您先松开急停按钮</string>
+    <string name="release_estop">松开急停按钮</string>
+    <string name="setting_page">设置页面</string>
+</resources>

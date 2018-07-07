@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/white_round_bg"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="添加餐桌点位"
+        android:textColor="#377ef4"
+		android:textSize="26sp"/>
+	<View 
+	    android:layout_width="match_parent"
+	    android:layout_height="0.5dp"
+	    android:background="#377ef4"/>
+	<TextView
+	    android:id="@+id/tv_content"
+	   	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="当前网络不可用，请检查你的网络设置"
+        android:textColor="#000"
+		android:textSize="26sp" />
+	/>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:orientation="horizontal" >
+
+	<TextView
+		android:id="@+id/tv_tableNameTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:text="当前餐桌名:"
+		android:textColor="#000"
+		android:textSize="26sp" />
+	<EditText
+		android:id="@+id/et_tableName"
+		android:layout_width="300dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="5dp"
+		android:hint="请输入别名"
+		android:textSize="26sp"
+
+		/>
+	</LinearLayout>
+	<EditText
+		android:id="@+id/et_tablePoint"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/et_tableName"
+		android:layout_marginTop="10dp"
+		android:hint="请输入点位"
+		android:textSize="26sp"
+
+		/>
+	<LinearLayout
+	    android:padding="10dp" 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    <Button
+	        android:id="@+id/btn_net_cancel"
+	        android:layout_width="0dp"
+	        android:layout_weight="1.0"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:background="@drawable/btn_net_know_selector"
+	        android:text="取消"
+	        android:textColor="@color/blue"
+			android:textSize="26sp"/>
+	    <Button
+	        android:id="@+id/btn_net_setting" 
+	        android:layout_width="0dp"
+	        android:layout_weight="1.0"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/btn_net_setting_selector"
+	        android:text="确定"
+	        android:textColor="@color/white"
+			android:textSize="26sp"/>
+	</LinearLayout>
+</LinearLayout>

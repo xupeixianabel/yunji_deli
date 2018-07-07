@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/joy_layout"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/rl_control"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+
+            android:id="@+id/rl_joylayout"
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
+
+             <ListView
+                 android:id="@+id/lv_layers"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_above="@+id/tv_start_task"
+                 >
+
+
+             </ListView>
+            <TextView
+                android:id="@+id/tv_start_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="开始配送"
+                android:textSize="30sp"
+                android:background="@color/green"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/rl_joylayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+            <GridView
+                android:id="@+id/gv_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@color/lightgray"
+                android:horizontalSpacing="2.0dip"
+                android:listSelector="@drawable/xuans"
+                android:numColumns="10"
+                android:verticalSpacing="2.0dip" />
+           <ImageView
+               android:id="@+id/iv_default"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="@drawable/ic_launcher"
+               />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/joy_layout"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gv_layout"
+
+
+                >
+
+                <Button
+                    android:id="@+id/btn_connect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="连接"
+                    android:textSize="28sp" />
+
+                <Button
+                    android:id="@+id/btn_interrupt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_connect"
+                    android:layout_marginLeft="20dp"
+                    android:text="断开"
+                    android:textSize="28sp" />
+
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/et_sendContent"
+                    android:layout_alignParentRight="true"
+                    android:text="发送"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/et_sendContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/btn_connect"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@+id/btn_send"
+                    android:ems="10"
+                    android:hint="输入消息内容"
+                    android:inputType="textPersonName"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_receive_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="内容阿斯蒂芬大师傅"
+                android:textColor="@android:color/black"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_margin="0dp"
+    android:background="@drawable/dialog_white_bg"
+     >
+ 
+	<TextView
+	    android:id="@+id/tv_update_title" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_margin="10dp"
+	    android:text="未连接服务"
+	    android:textSize="20sp"
+	    android:textColor="@color/green"/>
+	<View 
+	    android:id="@+id/view_update_line"
+	    android:layout_below="@id/tv_update_title"
+	    android:layout_marginBottom="10dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="0.5dp"
+	    android:background="@color/green"/>
+	
+	<TextView
+        android:id="@+id/tv_update_info" 
+        android:layout_below="@id/view_update_line"
+        android:layout_marginBottom="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:scrollbars="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:lineSpacingExtra="3dp"
+         android:ellipsize="none"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+	
+	<!-- 马上更新 -->
+    <LinearLayout
+        android:id="@+id/ll_apk_update"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" 
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_update_cancel" 
+            android:visibility="visible"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_selector"
+            android:text="稍后连接"
+            android:textSize="18sp"
+            android:textColor="@color/text_gray_color"
+             />
+        <Button 
+            android:id="@+id/btn_update_submit"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_selector"
+            android:text="重新连接"
+            android:textSize="18sp"
+            android:textColor="@color/text_blue_color"/>
+    </LinearLayout>
+    
+     
+
+</RelativeLayout>

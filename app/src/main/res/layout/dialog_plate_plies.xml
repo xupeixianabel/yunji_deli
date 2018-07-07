@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:orientation="vertical">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="20dp"
+    android:text="警告：不可随意更改，要以实际餐盘托板层数为准"
+    android:textColor="@color/theme_green"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="30dp"
+    />
+    <RadioGroup
+        android:id="@+id/choose_plies"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/four_plies"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="5dp"
+            android:text="四层餐盘"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/three_plies"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="5dp"
+            android:text="三层餐盘"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/two_plies"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="5dp"
+            android:text="两层餐盘"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/one_plies"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="5dp"
+            android:text="一层餐盘"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\libs\ormlite-core-4.49-SNAPSHOT.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="9a8b276da6dada8141f614d3feba25a0e8589db7">
+        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.1.2\bfc967828daffc35ba01c9ee204d98b664930a0f\constraint-layout-solver-1.1.2.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="bfc967828daffc35ba01c9ee204d98b664930a0f">
+        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\a52fb008577629516a0a3893f489b644\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="182370a4a0bba7903c6ff2cb7b6ac21ca4a4bf89">
+        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\libs\ormlite-android-4.49-SNAPSHOT.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="ecfae85e17f2472852fa8298952f9d52f6a6bfa4">
+        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\2.jar" />
+    </item>
+
+</items>

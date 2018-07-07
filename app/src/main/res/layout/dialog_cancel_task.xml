@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_round_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="请选择您需要取消的任务"
+        android:textColor="@color/theme_green"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="8dp"
+        android:background="@color/gray" />
+
+    <RelativeLayout
+        android:id="@+id/rl_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_title"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="340dp"
+                android:layout_height="330dp"
+                android:layout_marginTop="70dp"
+                android:gravity="left"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="机器人当前正在执行任务中，是否取消任务"
+                android:textColor="@color/theme_green"
+                android:textSize="26sp" />
+
+            <ListView
+                android:id="@+id/lv_list"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/translucent"
+                android:divider="#00000000"
+                android:dividerHeight="0dip"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_net_know_selector"
+                android:padding="10dp"
+                android:text="不取消"
+                android:textColor="@color/theme_green"
+                android:textSize="26sp" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_net_setting_selector"
+                android:padding="10dp"
+                android:text="取消任务"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

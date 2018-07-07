@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+	android:verticalGap="22px"
+	android:keyHeight="79dp"
+	android:keyWidth="88dp"
+	android:keyBackground ="@android:color/transparent"
+
+	>
+
+<!--	- 32-->
+	<Row>
+
+		<Key android:codes="65" android:keyLabel="A" android:horizontalGap="57dp" />
+		<Key android:codes="66" android:keyLabel="B" android:horizontalGap="57dp"/>
+		<Key android:codes="67" android:keyLabel="C" android:horizontalGap="57dp"/>
+
+	</Row>
+	<Row>
+
+		<Key android:codes="68" android:keyLabel="D" android:horizontalGap="57dp"/>
+		<Key android:codes="69" android:keyLabel="E" android:horizontalGap="57dp"/>
+		<Key android:codes="70" android:keyLabel="F" android:horizontalGap="57dp"/>
+
+	</Row>
+	<Row>
+		<Key android:codes="71" android:keyLabel="G" android:horizontalGap="57dp"/>
+		<Key android:codes="72" android:keyLabel="H" android:horizontalGap="57dp"/>
+		<Key android:codes="73" android:keyLabel="I" android:horizontalGap="57dp"/>
+
+	</Row>
+	<Row  >
+		<Key  android:codes="-2" android:keyLabel="12#" android:horizontalGap="57dp"    android:labelTextSize="39sp"/>
+		<Key  android:codes="74" android:keyLabel="J" android:horizontalGap="57dp"  />
+		<Key  android:codes="-5" android:keyIcon="@drawable/keyboard_delete_img" android:horizontalGap="57dp"
+			android:keyTextSize ="30sp" android:labelTextSize="32sp"
+			/>
+	</Row>
+</Keyboard>

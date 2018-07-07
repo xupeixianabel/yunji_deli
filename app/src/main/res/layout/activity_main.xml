@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/linearLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_background"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_list"
+            android:layout_width="640dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:cacheColorHint="@android:color/white">
+
+            <ImageView
+                android:id="@+id/setting"
+                android:layout_width="61dp"
+                android:layout_height="61dp"
+                android:padding="7dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_setting" />
+
+            <ImageView
+                android:id="@+id/iv_cruise"
+                android:layout_toRightOf="@+id/setting"
+                android:layout_width="55dp"
+                android:layout_height="61dp"
+                android:padding="7dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/cruise_setting" />
+            <ImageView
+                android:id="@+id/iv_add"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/iv_cruise"
+                android:layout_width="55dp"
+                android:layout_height="61dp"
+                android:padding="7dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/cruise_add" />
+
+            <ImageView
+                android:id="@+id/iv_stop"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/iv_add"
+                android:layout_width="55dp"
+                android:layout_height="61dp"
+                android:padding="7dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/cruise_add" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="100dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_grid"
+            android:layout_width="640dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/relativeLayout_list"
+            android:background="@null">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_grid"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="151dp"
+                android:background="@null" />
+
+            <RelativeLayout
+                android:layout_width="588dp"
+                android:layout_height="match_parent"
+                android:gravity="bottom">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/tv_start_task"
+                    android:layout_width="415dp"
+                    android:layout_height="94dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="38dp"
+                    android:background="@drawable/ic_button_bg"
+                    android:textColor="@color/white"
+                    android:textSize="30sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

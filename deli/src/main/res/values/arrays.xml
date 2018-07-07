@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="layer">
+        <item>F1</item>
+        <item>F2</item>
+        <item>F3</item>
+        <item>F4</item>
+    </string-array>
+
+    <string-array name="plates">
+        <item>餐盘（上）</item>
+        <item>餐盘（中）</item>
+        <item>餐盘（中）</item>
+        <item>餐盘（下）</item>
+    </string-array>
+
+    <string-array name="district">
+        <item>A区</item>
+        <item>B区</item>
+        <item>C区</item>
+        <item>D区</item>
+    </string-array>
+
+
+    <string-array name="setting">
+        <item>去充电</item>
+        <item>去厨房</item>
+        <item>清空任务</item>
+        <item>显示标题</item>
+        <item>获取状态</item>
+        <item>声音设置</item>
+        <item>点位录入</item>
+        <item>设置层数</item>
+        <item>修改密码</item>
+        <item>升级版本</item>
+    </string-array>
+
+</resources>

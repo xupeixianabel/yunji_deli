@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaveView">
+        <!--圆颜色-->
+        <attr name="wave_color" format="color" />
+        <!--中心圆图片半径-->
+        <attr name="wave_coreImageRadius" format="integer" />
+        <!--波浪圆之间间距,值越小越窄-->
+        <attr name="wave_width" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="Battery">
+        <attr name="batteryOrientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="batteryColor" format="color" />
+        <attr name="batteryPower" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="BatteryView">
+        <!--画圆角 -->
+        <attr name="bvRadius" format="float" />
+        <attr name="bvWidth" format="dimension" />
+        <attr name="bvHeight" format="dimension" />
+        <attr name="bvStrokeWidth" format="dimension" />
+        <attr name="bvStrokeColor" format="color" />
+        <attr name="bvColor" format="color" />
+        <attr name="bvInsideMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="Passwordinputview">
+        <attr name="passwordLength" format="integer"/>
+        <attr name="borderWidth" format="dimension"/>
+        <attr name="borderRadius" format="dimension"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="passwordWidth" format="dimension"/>
+        <attr name="passwordColor" format="color"/>
+    </declare-styleable>
+
+</resources>

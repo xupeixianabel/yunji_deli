@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_bg"
+    android:layout_width="185dp"
+    android:layout_height="201dp">
+
+    <ImageView
+        android:src="@drawable/a_checked"
+        android:id="@+id/imageGrid"
+        android:layout_width="185dp"
+        android:layout_height="181dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center" />
+
+</RelativeLayout>

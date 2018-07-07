@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="@dimen/x800"
+    android:layout_height="@dimen/y200"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="@drawable/main_selector_layer_bg"
+    >
+    <TextView
+        android:id="@+id/tv_layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x80"
+        android:text="F1"
+        android:textColor="@color/gray_66"
+        android:textSize="@dimen/text_size_24" />
+
+    <TextView
+        android:id="@+id/tv_plate"
+        android:textColor="@color/gray_66"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="@string/main_plate_up"
+        android:textSize="@dimen/text_size_20" />
+    <TextView
+        android:id="@+id/tv_choosed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x80"
+        android:gravity="center_vertical|right"
+        android:text="@string/main_click_choose"
+        android:textColor="@color/frame"
+        android:textSize="@dimen/text_size_20" />
+
+</LinearLayout>

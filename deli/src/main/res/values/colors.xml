@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme_green">#60c030</color>
+    <color name="theme_blue">#78d8f0</color>
+
+    <color name="blue">#1191ed</color>
+    <color name="green">#008000</color><!--绿色 -->
+    <color name="frame">#61a716</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="gray_divider_color">#d7d7d7</color>
+
+    <color name="gray_33">#333333</color>
+    <color name="gray_66">#666666</color>
+    <color name="gray_70">#707070</color>
+    <color name="gray_8a">#8a8a8a</color>
+    <color name="gray_99">#999999</color>
+    <color name="gray_d9">#d9d9d9</color>
+    <color name="gray_c2">#c2c2c2</color>
+    <color name="gray_cc">#cccccc</color>
+    <color name="gray_d3">#d3d3d3</color>
+    <color name="gray_e3">#EFEFEF</color>
+    <color name="gray_eef">#EEF1F6</color>
+    <color name="gray_e6">#F6F7F7</color>
+    <color name="gray_ee">#f8f8f8</color>
+    <color name="gray_ef">#EFF0F7</color>
+</resources>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/theme_green">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_back"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="设置页面"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <com.yunji.deliveryman.view.BatteryView
+            android:id="@+id/horizontalBattery"
+            android:layout_width="40dp"
+            android:layout_height="21dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="34dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            app:batteryColor="@android:color/white"
+            app:batteryOrientation="horizontal"
+            app:batteryPower="70" />
+
+        <ImageView
+            android:id="@+id/iv_charging"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/ic_charging_state"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_electricity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/horizontalBattery"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:id="@+id/joy_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
+
+            <GridView
+                android:id="@+id/gv_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:horizontalSpacing="2.0dip"
+                android:listSelector="@drawable/xuans"
+                android:numColumns="6"
+                android:verticalSpacing="30.0dip" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/sl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/joy_layout"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/gv_layout">
+
+                    <Button
+                        android:id="@+id/btn_connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="连接"
+                        android:textSize="28sp" />
+
+
+                    <Button
+                        android:id="@+id/btn_interrupt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@+id/btn_connect"
+                        android:text="断开"
+                        android:textSize="28sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_resetIp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/btn_interrupt"
+                        android:text="重置IP"
+                        android:textSize="28sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/et_sendContent"
+                        android:layout_alignParentRight="true"
+                        android:text="发送"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/et_sendContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/btn_connect"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/btn_send"
+                        android:ems="10"
+                        android:hint="输入消息内容"
+                        android:inputType="textPersonName"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_receive_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="显示结果"
+                    android:text="内容阿斯蒂芬大师傅"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_volume_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="540dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="音量调节"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="17dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/seekBar"
+                android:background="@drawable/ic_volume_sub" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxHeight="4dp"
+                android:minHeight="4dp"
+                android:paddingBottom="100dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="100dp"
+                android:progressDrawable="@drawable/seek_bar_voice_bg"
+                android:thumb="@drawable/ic_control" />
+
+            <ImageView
+                android:id="@+id/iv_icon2"
+                android:layout_width="42dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+
+                android:layout_toRightOf="@+id/seekBar"
+                android:background="@drawable/ic_volume_add" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--显示版本号-->
+    <TextView
+        android:id="@+id/txt_version_name"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="--"
+        android:textSize="20sp" />
+</RelativeLayout>

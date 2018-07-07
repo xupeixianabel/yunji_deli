@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_gray_deep_color"
+        android:textSize="18sp"
+        android:text="配置" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+       >
+
+        <TextView
+            android:id="@+id/tv_mode_cruise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="巡游模式"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp"
+            />
+
+
+      <RadioGroup
+          android:id="@+id/rg_time_mode"
+          android:gravity="center"
+          android:layout_width="wrap_content"
+          android:layout_marginRight="40dp"
+          android:layout_marginLeft="30dp"
+          android:layout_height="wrap_content">
+          <RadioButton
+              android:id="@+id/rb_top"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:checked="true"
+              android:textSize="16sp"
+              android:textColor="@color/text_gray_color"
+              android:text="定时"/>
+          <RadioButton
+              android:id="@+id/rb_bottom"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="16sp"
+              android:textColor="@color/text_gray_color"
+              android:text="按次"/>
+
+      </RadioGroup>
+
+        <include
+            android:id="@+id/in_mode_time"
+            layout="@layout/include_up_down"/>
+
+        <TextView
+            android:id="@+id/tv_mode_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="分钟"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_mode_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="语音模式"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp"
+            />
+
+
+        <RadioGroup
+            android:id="@+id/rg_voice_mode"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rb_speak_alltime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="16sp"
+                android:textColor="@color/text_gray_color"
+                android:text="边说边走"/>
+            <RadioButton
+                android:id="@+id/rb_stay_speak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/text_gray_color"
+                android:text="停下说话"/>
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_stay_time"
+            android:layout_marginRight="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="点位停留"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp"
+            />
+
+
+
+        <include
+            android:id="@+id/in_stay_time"
+            layout="@layout/include_up_down"/>
+
+        <TextView
+            android:id="@+id/tv_stay_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="秒"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/tv_cacel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/text_gray_color"
+            android:text="取消"/>
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/frame"
+            android:textSize="18sp"
+            android:text="开始巡游"/>
+
+    </LinearLayout>
+
+</LinearLayout>
