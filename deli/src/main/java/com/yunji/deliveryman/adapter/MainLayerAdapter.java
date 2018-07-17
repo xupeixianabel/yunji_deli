@@ -95,9 +95,11 @@ public class MainLayerAdapter extends SimpleRecAdapter<MainLayerBean, MainLayerA
         }
 
         if (data.get(position).isHasChoosed()) {
-            holder.tv_choosed.setTextSize(30);
+//            holder.tv_choosed.setTextSize(context.getResources().getDimension(R.dimen.dp_16));
+            holder.tv_choosed.getPaint().setFakeBoldText(true);
         } else {
-            holder.tv_choosed.setTextSize(20);
+//            holder.tv_choosed.setTextSize(context.getResources().getDimension(R.dimen.dp_20));
+            holder.tv_choosed.getPaint().setFakeBoldText(false);
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

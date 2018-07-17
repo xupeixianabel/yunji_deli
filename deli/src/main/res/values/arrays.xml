@@ -21,7 +21,14 @@
         <item>D区</item>
     </string-array>
 
-
+    <string-array name="Points">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+    </string-array>
     <string-array name="setting">
         <item>去充电</item>
         <item>去厨房</item>

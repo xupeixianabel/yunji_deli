@@ -3,43 +3,293 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\libs\ormlite-core-4.49-SNAPSHOT.jar"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava2\2.3.0\f436637f9500ab5b8bc32afe556373180894b4a5\adapter-rxjava2-2.3.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="f436637f9500ab5b8bc32afe556373180894b4a5">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\f7ba91978a43bc8abf2f1f9ec0e04add\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="6a2bcb61342d09fe9acf55c9daf63961c8866cc0">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.8.1\bc373fb6bc7bca3035041b924f158fd2b946ee8d\butterknife-annotations-8.8.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="bc373fb6bc7bca3035041b924f158fd2b946ee8d">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\5602b778ed6d0da7e692635c040757e9\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="6980ea27453d2bb99d8a484d359442ec6b1fe28c">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\afinal_0.5.1_bin.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="ae398c74701392473b9cb488c76a92576d6f548c">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\35.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.trello.rxlifecycle2\rxlifecycle\2.1.0\ceb847e21d527d2ef285cd3dd187379220ffb223\rxlifecycle-2.1.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="ceb847e21d527d2ef285cd3dd187379220ffb223">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\gson-2.7.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\rxandroid-2.0.1.aar\41039c63947b6a32172bd3fb7cb2b0c2\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\56.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\ormlite-core-4.49-SNAPSHOT.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="27.0.1"
         sha1="9a8b276da6dada8141f614d3feba25a0e8589db7">
-        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\1.jar" />
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\29.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.1.2\bfc967828daffc35ba01c9ee204d98b664930a0f\constraint-layout-solver-1.1.2.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="27.0.1"
-        sha1="bfc967828daffc35ba01c9ee204d98b664930a0f">
-        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\24.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\a52fb008577629516a0a3893f489b644\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="27.0.1"
-        sha1="182370a4a0bba7903c6ff2cb7b6ac21ca4a4bf89">
-        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\14.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\libs\ormlite-android-4.49-SNAPSHOT.jar"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\ormlite-android-4.49-SNAPSHOT.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="27.0.1"
         sha1="ecfae85e17f2472852fa8298952f9d52f6a6bfa4">
-        <dex dex="C:\Users\xiong\Desktop\work\project\DeliveryMan_BiShengKe\DeliveryMan_BiShengKe\app\build\intermediates\transforms\preDex\release\2.jar" />
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\rxlifecycle-components-2.1.0.aar\18a9ebde8fe0d156fd4353ae9311ac4a\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="e20f3c5e0e1bdbcf0edad8b16771497b36f68875">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\f32bc33730a47085df6918b0fc6861ed\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="221de83c08ed1502286513b4d472d256341e8839">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\org.reactivestreams\reactive-streams\1.0.0\14b8c877d98005ba3941c9257cfe09f6ed0e0d74\reactive-streams-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\61.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.3.0\bcacde6a8ccedcc56c127403d26b76072fe6214d\retrofit-2.3.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\org.apache.http.legacy.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\bugly_1.2.8_release.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="12ac72caf5c2f9797ea1af8b0160f1cda78a7d03">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\annotations\4.7.1\796c0bf0a61141278c4bc32de2b92e6eb7fa8b1a\annotations-4.7.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="796c0bf0a61141278c4bc32de2b92e6eb7fa8b1a">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\59.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0-alpha3.aar\1a497fcc419832685eec89469eba24d1\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="672ef9f35ed1907ab7d0933a3e1601fc780e86d7">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\disklrucache\4.7.1\21e6054c134c7f5c435ab7635984f39c5375083e\disklrucache-4.7.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="21e6054c134c7f5c435ab7635984f39c5375083e">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\io.reactivex.rxjava2\rxjava\2.1.1\99895d4dc6d79efbb74360f13c556d95533ad8f8\rxjava-2.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="99895d4dc6d79efbb74360f13c556d95533ad8f8">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="93b399470e72c0bc8cb52379943b63c9aa586cd8">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\55.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\org.eclipse.paho.client.mqttv3-1.2.0.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="d9496013da5936bf88f797290449d297d371062b">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\libs\yunji_sdk.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="dcc343764bbbe4318b5a96aa592d87d9f313f916">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\rxeasyhttp-2.1.0.aar\18fd15d5e227a3c70f0d87051a3e2d55\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="6c4671c74de7be1e69c160677d763c257d6e5e93">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.3.0\9e09011e9767bb76b5e27c9b8223476b93b14631\converter-gson-2.3.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\rxlifecycle-android-2.1.0.aar\de3a16b941431d8871af15ed55523fc4\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="a1589af4546e0299f3e0c77de3215ecfd3a0e19d">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\transforms-1\files-1.1\rxpermissions-0.9.3.aar\5bc6321a6a783f228cd3134f66b1bbdb\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="6f8bee169957506578df40084c46dcce783c70fe">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.1.2\a1b4b8e4dc5f7bfa9186e79f9e267c1539a847b0\logging-interceptor-3.1.2.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="28.0.0"
+        sha1="a1b4b8e4dc5f7bfa9186e79f9e267c1539a847b0">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\deli\build\intermediates\transforms\preDex\release\17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xiong\Desktop\work\project\yunji_deli\app\libs\xUtils-2.6.14.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.1"
+        sha1="f10c51f3e0732fdeefe6e104279a58e275879b6c">
+        <dex dex="C:\Users\xiong\Desktop\work\project\yunji_deli\app\build\intermediates\transforms\preDex\release\32.jar" />
     </item>
 
 </items>

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.components.support.RxFragment;
-import com.yunji.deliveryman.MyConf;
+import com.yunji.deliveryman.MyConst;
 import com.yunji.deliveryman.bus.BusProvider;
 import com.yunji.deliveryman.util.KnifeKit;
 
@@ -120,7 +120,7 @@ public abstract class XFragment<P extends IPresent> extends RxFragment implement
 
     protected RxPermissions getRxPermissions() {
         rxPermissions = new RxPermissions(getActivity());
-        rxPermissions.setLogging(MyConf.DEV);
+        rxPermissions.setLogging(MyConst.DEV);
         return rxPermissions;
     }
 

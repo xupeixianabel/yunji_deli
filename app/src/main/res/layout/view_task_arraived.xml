@@ -4,31 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
+
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        >
-    <ListView
-        android:id="@+id/list_finish"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@color/translucent"
-        android:gravity="center" />
+        android:layout_centerInParent="true">
 
-    <TextView
-        android:id="@+id/confirm_to_get"
-        android:layout_width="559dp"
-        android:layout_height="64dp"
-        android:layout_below="@+id/list_finish"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/ic_start_task"
-        android:gravity="bottom"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        <ListView
+            android:id="@+id/list_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/translucent"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/confirm_to_get"
+            android:layout_width="559dp"
+            android:layout_height="64dp"
+            android:layout_below="@+id/list_finish"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ic_start_task"
+            android:gravity="bottom"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
     </RelativeLayout>
 
     <View

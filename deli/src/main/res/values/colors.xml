@@ -4,16 +4,19 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="light_blue">#87F7FF</color>
+
     <color name="theme_green">#60c030</color>
     <color name="theme_blue">#78d8f0</color>
 
     <color name="blue">#1191ed</color>
     <color name="green">#008000</color><!--绿色 -->
     <color name="frame">#61a716</color>
-
+    <color name="black">#ff000000</color>
     <color name="white">#ffffffff</color>
     <color name="gray_divider_color">#d7d7d7</color>
 
+    <color name="transparent">#00000000</color>
     <color name="gray_33">#333333</color>
     <color name="gray_66">#666666</color>
     <color name="gray_70">#707070</color>

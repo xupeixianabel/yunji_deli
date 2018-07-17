@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/ic_background"
      >
 
     <LinearLayout
         android:id="@+id/ll_left"
-        android:layout_width="@dimen/x960"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y200"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/iv_setting"
-                android:layout_width="61dp"
-                android:layout_height="61dp"
-                android:padding="7dp"
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="@dimen/dp_32"
+                android:padding="@dimen/dp_4"
                 android:src="@drawable/ic_setting" />
 
             <ImageView
                 android:id="@+id/iv_cruise"
-                android:layout_width="55dp"
-                android:layout_height="61dp"
-                android:layout_marginLeft="60dp"
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="@dimen/dp_32"
+                android:layout_marginLeft="@dimen/dp_40"
                 android:layout_toRightOf="@+id/setting"
-                android:padding="7dp"
+                android:padding="@dimen/dp_4"
                 android:src="@drawable/cruise_setting" />
 
         </LinearLayout>
@@ -42,14 +45,16 @@
             android:id="@+id/recycler_left"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/x40"
-            android:layout_marginLeft="@dimen/x80"
-            android:layout_marginRight="@dimen/x40" />
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_12" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/ll_right"
-        android:layout_width="@dimen/x960"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintLeft_toRightOf="@+id/ll_left">
@@ -58,25 +63,25 @@
             android:id="@+id/recycler_right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/x150"
-            android:layout_marginLeft="@dimen/x20"
-            android:layout_marginRight="@dimen/x120"
-            android:layout_marginTop="@dimen/x240" />
+            android:layout_marginBottom="@dimen/dp_45"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:layout_marginRight="@dimen/dp_28"
+            android:layout_marginTop="@dimen/dp_72" />
 
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/tv_start_task"
-            android:layout_width="@dimen/x600"
-            android:layout_height="@dimen/x150"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_50"
             android:layout_centerHorizontal="true"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="@dimen/y40"
+            android:layout_marginBottom="@dimen/dp_13"
             android:background="@drawable/ic_button_bg"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+           />
 
 
     </FrameLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -68,6 +68,7 @@ import com.yunji.deliveryman.db.TaskSendDao;
 import com.yunji.deliveryman.mqtt.MqttManager;
 import com.yunji.deliveryman.other.log.FL;
 import com.yunji.deliveryman.services.UpdateManager;
+import com.yunji.deliveryman.utils.DialogUtil;
 import com.yunji.deliveryman.utils.DipPxUtils;
 import com.yunji.deliveryman.utils.FullScreenDialog;
 import com.yunji.deliveryman.utils.MyLogcat;
@@ -383,6 +384,7 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
                                     MyLogcat.showLogStatusState("@@@@@@@@@@@@@@当前急停状态=" + robotResponse.estop);
                                     FL.e(Constants.show_log_status_state, "@@@@@@@@@@@@@@当前急停状态=" + robotResponse.estop);
                                     if (robotResponse.estop) {
+                                        activity.showEstopDialog();
 
                                         activity.isHardEstop = true;
                                         if (activity.mSettingsDialog != null && activity.mSettingsDialog.isShowing()) {
@@ -390,7 +392,11 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
                                         } else {
                                             activity.noSpeakCancelHardEstop = false;
                                         }
+
                                     } else {
+                                        activity.stopShowEstopDialog();
+
+
                                         activity.isHardEstop = false;
                                     }
 //
@@ -776,7 +782,7 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
         findViewById(R.id.iv_add).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                addVoice();
+                addVoice();
 //                startPlay("cruise_1");
 
             }
@@ -1851,8 +1857,8 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
                 taskArraivedDialog.dismiss();
             }
             clearData();
-//            speakStr = "已到达厨房";
-//            speakLine();
+            speakStr = "已到达厨房";
+            speakLine();
             return;
         }
         final List<TaskSend> newTaskSendList = getTaskListByTaskState(99);
@@ -2843,9 +2849,9 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
 
 
     private void addVoice() {
-        String path = Environment.getExternalStorageDirectory() + "/Movies/cruise_3.wav";
+        String path = Environment.getExternalStorageDirectory() + "/Movies/cruise_food.wav";
 
-        Uri uri = Uri.parse("android.resource://com.yunji.deliveryman/" + R.raw.cruise_1);
+//        Uri uri = Uri.parse("android.resource://com.yunji.deliveryman/" + R.raw.cruise_1);
         File file = new File(path);
         Log.e("------file-----", file.exists() ? "存在" : "不存在" + "   " + file.getAbsolutePath());
         OkHttpClient client = new OkHttpClient();
@@ -2867,6 +2873,7 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                Log.d("-----okhttp-------", "onFailure: " + e.getMessage());
             }
 
             @Override
@@ -2963,5 +2970,21 @@ public class MainActivity extends Activity implements HttpService.IHttpServiceIn
 
 
     }
+
+
+    Dialog estopDialog;
+    private void showEstopDialog(){
+        if (estopDialog==null || !estopDialog.isShowing()){
+            estopDialog=  DialogUtil.estopDialog(MainActivity.this);
+        }
+    }
+
+    private void stopShowEstopDialog(){
+        if (estopDialog!=null ){
+            estopDialog.cancel();
+            estopDialog=null;
+        }
+    }
+
 
 }

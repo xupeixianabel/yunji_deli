@@ -12,18 +12,21 @@ import android.view.View;
 import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.adapter.MainDistrictAdapter;
 import com.yunji.deliveryman.adapter.MainLayerAdapter;
-import com.yunji.deliveryman.base.BaseMvpActivity;
+import com.yunji.deliveryman.base.BaseMvpLifeActivity;
 import com.yunji.deliveryman.base.RecyclerItemCallback;
 import com.yunji.deliveryman.bean.MainDistrictBean;
 import com.yunji.deliveryman.bean.MainLayerBean;
+import com.yunji.deliveryman.core.RobotStateService;
 import com.yunji.deliveryman.mvpP.MainPresent;
-import com.yunji.deliveryman.util.ActivityUtil;
 import com.yunji.deliveryman.util.DialogUtil;
+import com.yunji.deliveryman.util.SpeechUtil;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseMvpActivity<MainPresent> {
+public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
     @BindView(R.id.recycler_left)
     RecyclerView recycler_left;
     @BindView(R.id.recycler_right)
@@ -35,9 +38,65 @@ public class MainActivity extends BaseMvpActivity<MainPresent> {
     MainDistrictAdapter districtAdapter;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        RobotStateService.getInstance().setRobotStateCallBack(getP());
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         getP().initPermission();
         setAdapter();
+    }
+
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public MainPresent newP() {
+        return new MainPresent();
+    }
+
+
+    @OnClick({R.id.iv_setting, R.id.iv_cruise, R.id.tv_start_task})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_setting:
+                startActivity(new Intent(context, SettingActivity.class));
+                break;
+            case R.id.iv_cruise:
+               /* new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        testApi();
+                    }
+                }, 1000, 1000);*/
+
+                testApi();
+                break;
+            case R.id.tv_start_task:
+                getP().checkTable((ArrayList<MainLayerBean>) layerAdapter.getDataSource());
+                break;
+        }
+    }
+
+    private void testApi() {
+//        SpeechUtil.getInstance().speaking("我正在前往A区送餐，请给我让让道。");
+//        getP().speechUtil.speaking("are you ok ");
+
+
+
+
+    }
+
+    public void setLayer(int layer) {
+        if (layer > 0 && layer <= 4) {
+            layerAdapter.setData(getP().getLayerData(layer));
+            districtAdapter.setCheckedIndex(-1);
+        }
     }
 
     private void setAdapter() {
@@ -45,7 +104,7 @@ public class MainActivity extends BaseMvpActivity<MainPresent> {
         layerAdapter.setDistrictData(getP().getDistrictList());
         recycler_left.setLayoutManager(new LinearLayoutManager(context));
         recycler_left.setAdapter(layerAdapter);
-        layerAdapter.setData(getP().getLayerData());
+        layerAdapter.setData(getP().getLayerData(4));
         layerAdapter.setRecItemClick(new RecyclerItemCallback<MainLayerBean, MainLayerAdapter.ViewHolder>() {
             @Override
             public void onItemClick(int position, MainLayerBean model, int tag, MainLayerAdapter.ViewHolder holder) {
@@ -86,39 +145,16 @@ public class MainActivity extends BaseMvpActivity<MainPresent> {
         });
     }
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    public MainPresent newP() {
-        return new MainPresent();
-    }
-
-
-    @OnClick({R.id.iv_setting, R.id.iv_cruise, R.id.tv_start_task})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.iv_setting:
-                startActivity(new Intent(context,SettingActivity.class));
-                break;
-            case R.id.iv_cruise:
-                break;
-            case R.id.tv_start_task:
-                break;
-        }
-    }
-
 
     private Dialog estopDialog;
 
-    private void showEstopDialog() {
+    public void showEstopDialog() {
         if (estopDialog != null && estopDialog.isShowing()) return;
-        estopDialog = DialogUtil.estopDialog(context);
+        if (lifeState == STATE_ONRESUME)
+            estopDialog = DialogUtil.estopDialog(context);
     }
 
-    private void hideEstopDialog() {
+    public void hideEstopDialog() {
         if (estopDialog != null) {
             estopDialog.cancel();
             estopDialog = null;

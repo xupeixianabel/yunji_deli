@@ -1,6 +1,8 @@
 package com.yunji.deliveryman.bean;
 
-public class MainLayerBean {
+import java.io.Serializable;
+
+public class MainLayerBean implements Serializable{
     private String layer;
     private String plateLayer;
     private int districtPosition;

@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cl_root"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+
+<!--    <ImageView
+        android:id="@+id/iv_estop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y100"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:src="@drawable/estop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+
+
+   <!-- <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="请您先松开急停按钮"
         android:textColor="@color/frame"
         android:textSize="40sp"
@@ -24,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/y300"
+        android:layout_marginTop="200dp"
         android:src="@drawable/estop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -33,11 +51,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y320"
+        android:layout_marginTop="210dp"
         android:text="松开急停按钮"
         android:textColor="@color/text_gray_deep_color"
         android:textSize="32sp"
         app:layout_constraintLeft_toRightOf="@+id/iv_estop"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
-</android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请您先松开急停按钮"
+        android:layout_marginTop="170dp"
+        android:textColor="@color/frame"
+        android:textSize="40sp"
+
+        />
+
+    <ImageView
+        android:id="@+id/iv_estop"
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:src="@drawable/estop"
+       />
+
+
+
+</LinearLayout>

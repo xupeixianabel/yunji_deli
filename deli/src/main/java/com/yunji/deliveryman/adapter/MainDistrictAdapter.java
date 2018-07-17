@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.base.SimpleRecAdapter;
 import com.yunji.deliveryman.bean.MainDistrictBean;
@@ -39,8 +41,6 @@ public class MainDistrictAdapter extends SimpleRecAdapter<MainDistrictBean, Main
         }else {
             holder.iv_district.setImageResource(data.get(position).getUnCheckedId());
         }
-
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

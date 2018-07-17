@@ -16,6 +16,22 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
+
+
+    <!--连接网络权限，用于执行云端语音能力 -->
+    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!--读取联系人权限，上传联系人需要用到此权限 -->
+    <!--<uses-permission android:name="android.permission.READ_CONTACTS"/>-->
+    <!--配置权限，用来记录应用配置信息 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!--手机定位信息，用来为语义等功能提供定位，提供更精准的服务-->
+    <!--定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".DeliApplication"
         android:allowBackup="true"
@@ -23,9 +39,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
-        <activity android:name=".mvpV.SplashActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".mvpV.SplashActivity"
             android:fitsSystemWindows="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape">
@@ -35,21 +51,59 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvpV.MainActivity"
+        <activity
+            android:name=".mvpV.MainActivity"
             android:fitsSystemWindows="true"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
-            >
-        </activity>
-        <activity android:name=".mvpV.SettingActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".mvpV.SettingActivity"
             android:fitsSystemWindows="true"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
-            >
-        </activity>
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".mvpV.TaskActivity"
+            android:fitsSystemWindows="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"></activity>
 
 
 
+
+
+        <!-- 开机启动广播接收 -->
+        <receiver android:name="com.yunji.deliveryman.core.StartReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+        <meta-data
+            android:name="debug"
+            android:value="true" />
+        <meta-data
+            android:name="http_url"
+            android:value="http://192.168.0.157:8809" />
+        <meta-data
+            android:name="auth_http_url"
+            android:value="http://api.yunjichina.com.cn" />
+        <meta-data
+            android:name="socket_url"
+            android:value="" />
+        <meta-data
+            android:name="socket_port"
+            android:value="" />
+        <meta-data
+            android:name="app_name"
+            android:value="deli_test" />
+        <meta-data
+            android:name="app_key"
+            android:value="aaaaaaaaa" />
+        <meta-data
+            android:name="log_tag"
+            android:value="------delivery------" />
     </application>
 
 </manifest>

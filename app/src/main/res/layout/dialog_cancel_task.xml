@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:text="请选择您需要取消的任务"
+        android:text="取消任务"
         android:textColor="@color/theme_green"
         android:textSize="26sp" />
 
@@ -39,14 +39,13 @@
 
             <TextView
                 android:id="@+id/tv_content"
-                android:layout_width="340dp"
-                android:layout_height="330dp"
+                android:layout_width="360dp"
+                android:layout_height="360dp"
+                android:paddingTop="30dp"
                 android:layout_marginTop="70dp"
-                android:gravity="left"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:text="机器人当前正在执行任务中，是否取消任务"
-                android:textColor="@color/theme_green"
+                android:gravity="center_horizontal"
+                android:text="机器人当前正在执行任务，\n\n是否取消任务?"
+                android:textColor="@color/TextColorGray"
                 android:textSize="26sp" />
 
             <ListView

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="@dimen/dp_320"
+    android:layout_height="@dimen/dp_55"
+    android:paddingLeft="@dimen/dp_30"
+    android:paddingRight="@dimen/dp_30"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_18"
+    android:gravity="center|left"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_layer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:text="F1"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp_14"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tv_district"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/main_d_zone"
+            android:textColor="@color/gray_99"
+
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_weight="1"
+            android:text="@string/please_take_meal"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_gig"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

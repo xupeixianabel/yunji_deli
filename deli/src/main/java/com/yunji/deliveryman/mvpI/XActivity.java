@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-import com.yunji.deliveryman.MyConf;
+import com.yunji.deliveryman.MyConst;
 import com.yunji.deliveryman.bus.BusProvider;
 import com.yunji.deliveryman.util.KnifeKit;
 
@@ -121,7 +121,7 @@ public abstract class XActivity<P extends IPresent> extends RxAppCompatActivity 
 
     public RxPermissions getRxPermissions() {
         rxPermissions = new RxPermissions(this);
-        rxPermissions.setLogging(MyConf.DEV);
+        rxPermissions.setLogging(MyConst.DEV);
         return rxPermissions;
     }
 

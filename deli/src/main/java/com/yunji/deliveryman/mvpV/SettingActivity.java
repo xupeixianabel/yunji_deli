@@ -3,6 +3,7 @@ package com.yunji.deliveryman.mvpV;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,17 +11,20 @@ import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.adapter.MainDistrictAdapter;
 import com.yunji.deliveryman.adapter.SettingAdapter;
 import com.yunji.deliveryman.base.BaseMvpActivity;
+import com.yunji.deliveryman.base.BaseMvpLifeActivity;
 import com.yunji.deliveryman.base.RecyclerItemCallback;
 import com.yunji.deliveryman.bean.MainDistrictBean;
 import com.yunji.deliveryman.bean.SettingBean;
+import com.yunji.deliveryman.core.RobotStateService;
 import com.yunji.deliveryman.mvpP.SettingPresent;
 import com.yunji.deliveryman.widget.BatteryView;
+import com.yunji.sdk.bean.deli.YJDeliTaskStateBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SettingActivity extends BaseMvpActivity<SettingPresent> {
+public class SettingActivity extends BaseMvpLifeActivity<SettingPresent> {
     SettingAdapter settingAdapter;
     @BindView(R.id.horizontalBattery)
     BatteryView horizontalBattery;
@@ -30,6 +34,12 @@ public class SettingActivity extends BaseMvpActivity<SettingPresent> {
     TextView tv_electricity;
     @BindView(R.id.rc_setting)
     RecyclerView rc_setting;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        RobotStateService.getInstance().setRobotStateCallBack(getP());
+    }
 
     @Override
     public void initData(Bundle savedInstanceState) {
@@ -62,8 +72,10 @@ public class SettingActivity extends BaseMvpActivity<SettingPresent> {
     }
 
     @OnClick(R.id.rl_back)
-    public void onViewClicked() {
+    public void onViewClicked(View view) {
         finish();
 
     }
+
+
 }

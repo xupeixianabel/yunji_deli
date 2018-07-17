@@ -86,3 +86,11 @@
 
 -dontwarn com.jakewharton.**
 -keep public class com.jakewharton.**{*;}
+
+
+-dontwarn com.yunji.sdk.**
+-keep public class com.yunji.sdk.**{*;}
+
+
+-keep class com.iflytek.**{*;}
+-keepattributes Signature

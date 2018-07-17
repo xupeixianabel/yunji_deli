@@ -2,54 +2,34 @@ package com.yunji.deliveryman;
 
 import android.app.Application;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.yunji.handler.YunJiApiFactory;
-import com.yunji.handler.api.IYunJiAPIManger;
-import com.yunji.handler.log.CommonLog;
+import com.yunji.sdk.YunjiApiFactory;
+import com.yunji.sdk.api.YunjiApiDeliInterface;
 
-/**
- * @author lixuanting
- * @date 2018/3/15 上午9:54
- */
 
 public class DeliApplication extends Application {
     private static DeliApplication mApplication;
-
     public static DeliApplication getmApplication() {
         return mApplication;
     }
-
-    public static IYunJiAPIManger apiManger;
-
+    public static YunjiApiDeliInterface yunjiApiDeli;
     @Override
     public void onCreate() {
         super.onCreate();
         mApplication = this;
         Logger.addLogAdapter(new AndroidLogAdapter());
         CrashReport.initCrashReport(getApplicationContext(), "fc57333323", false);
-//        initDeliApi();
+        yunjiApiDeli= YunjiApiFactory.getYunjiApiDeli(mApplication);
+
+        SpeechUtility.createUtility(mApplication, SpeechConstant.APPID +"=5b49768b");
     }
 
-
-
-
-
-    private void initDeliApi() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                Logger.d("Init api manager");
-                try {
-                    apiManger = YunJiApiFactory.createYunJiApi(mApplication);
-                    Logger.d(apiManger.toString());
-                } catch (Exception e) {
-                    Logger.d(e.getMessage());
-                }
-            }
-        }.start();
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
     }
-
 }

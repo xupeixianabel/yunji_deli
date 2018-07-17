@@ -19,11 +19,13 @@ public class MainModel  {
         mainPresent=null;
     }
 
-    public List<MainLayerBean> getLayerData(Context context) {
+    public List<MainLayerBean> getLayerData(Context context,int length) {
+        if (length<=0)length=1;
+        if (length>4)length=4;
         String[] layers = context.getResources().getStringArray(R.array.layer);
         String[] plate = context.getResources().getStringArray(R.array.plates);
         List<MainLayerBean> list = new ArrayList<MainLayerBean>();
-        for (int i = 0; i < layers.length; i++) {
+        for (int i = 0; i < length; i++) {
             list.add(new MainLayerBean(layers[i], plate[i], -1, false));
         }
         return list;
