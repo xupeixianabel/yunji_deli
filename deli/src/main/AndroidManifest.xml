@@ -68,7 +68,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"></activity>
 
-
+        <activity
+            android:name=".mvpV.EstopActivity"
+            android:fitsSystemWindows="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"></activity>
 
 
 

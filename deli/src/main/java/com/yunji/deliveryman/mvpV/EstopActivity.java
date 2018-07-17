@@ -20,8 +20,6 @@ import butterknife.OnClick;
 
 public class EstopActivity extends BaseMvpLifeActivity<EstopPresent> {
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -30,8 +28,7 @@ public class EstopActivity extends BaseMvpLifeActivity<EstopPresent> {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-
-
+        getP().ifHasTask();
     }
 
     @Override

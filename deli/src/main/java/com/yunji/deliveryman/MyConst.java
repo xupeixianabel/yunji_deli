@@ -22,7 +22,8 @@ public class MyConst {
     public final static int BATTERY_CHARGING = 5;
 
 
-    public static final int MSG_WHAT_SPEAK = 1;
+
+    public final static String PLAT_LAYER="PLAT_LAYER";
 
 
 }

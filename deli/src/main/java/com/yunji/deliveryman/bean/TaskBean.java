@@ -6,12 +6,22 @@ public class TaskBean implements Serializable{
     private String layer;//F1,F2,F3,F4
     private String district;
     private int districtPosition;
+    private boolean isChecked;//取消任务时用到的，是否选择了取消。
+
     public TaskBean() {
     }
     public TaskBean(String layer, String district,int districtPosition) {
         this.layer = layer;
         this.district = district;
         this.districtPosition = districtPosition;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
     public String getLayer() {

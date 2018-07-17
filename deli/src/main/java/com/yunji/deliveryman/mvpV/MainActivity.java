@@ -146,25 +146,9 @@ public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
     }
 
 
-    private Dialog estopDialog;
-
-    public void showEstopDialog() {
-        if (estopDialog != null && estopDialog.isShowing()) return;
-        if (lifeState == STATE_ONRESUME)
-            estopDialog = DialogUtil.estopDialog(context);
-    }
-
-    public void hideEstopDialog() {
-        if (estopDialog != null) {
-            estopDialog.cancel();
-            estopDialog = null;
-        }
-    }
-
-
     @Override
     protected void onDestroy() {
-        hideEstopDialog();
+//        hideEstopDialog();
         super.onDestroy();
     }
 }

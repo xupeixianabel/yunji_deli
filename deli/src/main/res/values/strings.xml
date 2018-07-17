@@ -30,4 +30,28 @@
     <string name="state_complete">已完成</string>
     <string name="state_not_pull">未放置</string>
     <string name="state_not_arrive">未到达</string>
+
+
+
+
+    <string name="layer_warn">警告：不可随意更改，要以实际餐盘托板层数为准</string>
+    <string name="layer_4">四层餐盘</string>
+    <string name="layer_3">三层餐盘</string>
+    <string name="layer_2">两层餐盘</string>
+    <string name="layer_1">一层餐盘</string>
+    <string name="confirm">确定</string>
+
+    <string name="show_navi_bar">显示标题</string>
+    <string name="hide_navi_bar">隐藏标题</string>
+
+
+    <string name="cacel_task">取消任务</string>
+    <string name="not_cacel">不取消</string>
+    <string name="hint_cacel_task">机器人当前正在执行任务，是否取消任务?</string>
+
+
+    <string name="task_go_kichen">回厨房</string>
+    <string name="task_delivery">%s区送餐</string>
+    <string name="please_choose_task">请选择要取消的任务</string>
+
 </resources>

@@ -29,9 +29,9 @@ public class TaskPresent extends XPresent<TaskActivity> implements RobotStateSer
                 taskState = MyConst.DELIVERY_START;
                 break;
             case "DELIVERY_END"://任务结束
-                showDialogTaskEnd(stateBean);
                 taskState = MyConst.DELIVERY_END;
                 DeliApplication.yunjiApiDeli.cancelTask(null);
+                showDialogTaskEnd(stateBean);
                 break;
             case "ACTION_CANCELED"://任务取消
                 taskState = MyConst.ACTION_CANCELED;
@@ -134,7 +134,7 @@ public class TaskPresent extends XPresent<TaskActivity> implements RobotStateSer
                 public void run() {
                     taskNoback(MyConst.tasks.get(0).getDistrict());
                 }
-            }, 3000);
+            }, 2000);
             String spkStr = "";
             if (first) {
                 spkStr = String.format(getV().getResources().getString(R.string.go_delivery_first), MyConst.tasks.get(0).getDistrict());

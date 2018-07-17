@@ -2,6 +2,7 @@ package com.yunji.deliveryman.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -47,5 +48,21 @@ public class ActivityUtil {
 		DisplayMetrics dm = new DisplayMetrics();
 		activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
 		return dm.heightPixels;
+	}
+
+
+	public static  void showDorbar(Context context, boolean isShow) {
+		Intent intent= null;
+		if(isShow){
+			intent=new Intent("com.android.systembar.show");
+			context.sendBroadcast(intent);
+
+		}else{
+			intent=new Intent("com.android.systembar.hide");
+			context.sendBroadcast(intent);
+
+//            if (context instanceof Activity)
+//            hideBottomUIMenu((Activity) context);
+		}
 	}
 }

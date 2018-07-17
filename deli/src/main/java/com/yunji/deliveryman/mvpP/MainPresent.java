@@ -86,7 +86,7 @@ public class MainPresent extends XPresent<MainActivity> implements RobotStateSer
 
     @Override
     public void robotState(YJDeliTaskStateBean status) {
-        if (status != null && status.getCode() == 0) {
+      /*  if (status != null && status.getCode() == 0) {
             if (status.getData() != null) {
                 if (status.getData().isEstop()) {
                     getV().showEstopDialog();
@@ -94,7 +94,7 @@ public class MainPresent extends XPresent<MainActivity> implements RobotStateSer
                     getV().hideEstopDialog();
                 }
             }
-        }
+        }*/
 
     }
 
@@ -125,11 +125,11 @@ public class MainPresent extends XPresent<MainActivity> implements RobotStateSer
         tasks.add(new TaskBean("F0","E",4));//厨房点位
 
         if (Kits.NetWork.checkNetworkIfAvailable(getV())) {
+            DeliApplication.yunjiApiDeli.cancelTask(null);
             MyConst.tasks = tasks;
             Intent intent = new Intent(getV(), TaskActivity.class);
             intent.putExtra("data",dataSource);
             getV().startActivity(intent);
-
             //        getPoint(tasks);
         } else {
             getV().showTs("please check net connection!");
