@@ -18,6 +18,7 @@ import com.yunji.deliveryman.bean.SettingBean;
 import com.yunji.deliveryman.core.RobotStateService;
 import com.yunji.deliveryman.mvpP.SettingPresent;
 import com.yunji.deliveryman.util.DialogUtil;
+import com.yunji.deliveryman.util.Kits;
 import com.yunji.deliveryman.widget.BatteryView;
 import com.yunji.sdk.bean.deli.YJDeliTaskStateBean;
 
@@ -28,17 +29,18 @@ import butterknife.OnClick;
 public class SettingActivity extends BaseMvpLifeActivity<SettingPresent> {
     public SettingAdapter settingAdapter;
     @BindView(R.id.horizontalBattery)
-    BatteryView horizontalBattery;
+    public   BatteryView horizontalBattery;
     @BindView(R.id.iv_charging)
-    ImageView iv_charging;
+    public ImageView iv_charging;
     @BindView(R.id.tv_electricity)
-    TextView tv_electricity;
+    public TextView tv_electricity;
     @BindView(R.id.rc_setting)
     RecyclerView rc_setting;
 
     @BindView(R.id.tv_state)
     TextView tv_state;
-
+    @BindView(R.id.tv_version)
+    TextView tv_version;
 
     @Override
     protected void onResume() {
@@ -49,6 +51,7 @@ public class SettingActivity extends BaseMvpLifeActivity<SettingPresent> {
     @Override
     public void initData(Bundle savedInstanceState) {
         setAdapter();
+        tv_version.setText(Kits.Package.getVersionName(context));
     }
 
     private void setAdapter() {
@@ -85,10 +88,10 @@ public class SettingActivity extends BaseMvpLifeActivity<SettingPresent> {
                     case 7://设置层数
                         DialogUtil.layerDialog(context);
                         break;
-                    case 8://修改密码
+                /*    case 8://修改密码
                         getP().changePwd();
-                        break;
-                    case 9://升级版本
+                        break;*/
+                    case 8://升级版本
                         getP().update();
                         break;
                 }
@@ -100,10 +103,11 @@ public class SettingActivity extends BaseMvpLifeActivity<SettingPresent> {
     public boolean stateVisible;
 
     private void setStateVisible() {
+        stateVisible=!stateVisible;
         if (stateVisible) {
             tv_state.setVisibility(View.VISIBLE);
         } else {
-            tv_state.setVisibility(View.GONE);
+            tv_state.setVisibility(View.INVISIBLE);
         }
     }
 

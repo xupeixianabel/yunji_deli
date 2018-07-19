@@ -18,26 +18,30 @@ public class MainLayerAdapter extends SimpleRecAdapter<MainLayerBean, MainLayerA
     private int checkedIndex;
     String[] districtData;
 
+    public void setCheckedIndex(int checkedIndex) {
+        this.checkedIndex = checkedIndex;
+    }
+
     public void setDistrictData(String[] districts) {
         this.districtData = districts;
     }
 
 
     public void setDistrict(int position) {
-        data.get(checkedIndex).setHasChoosed(true);
+        data.get(checkedIndex).setDeliveryState(1);
         data.get(checkedIndex).setDistrictPosition(position);
         notifyDataSetChanged();
     }
 
     public void unSetDistrict() {
-        data.get(checkedIndex).setHasChoosed(false);
+        data.get(checkedIndex).setDeliveryState(0);
         data.get(checkedIndex).setDistrictPosition(-1);
         notifyDataSetChanged();
     }
 
     public void setDistrictAll() {
         for (int i = 0; i < data.size(); i++) {
-            data.get(i).setHasChoosed(true);
+            data.get(i).setDeliveryState(1);
             data.get(i).setDistrictPosition(i);
         }
         notifyDataSetChanged();
@@ -45,7 +49,7 @@ public class MainLayerAdapter extends SimpleRecAdapter<MainLayerBean, MainLayerA
 
     public void unSetDistrictAll() {
         for (int i = 0; i < data.size(); i++) {
-            data.get(i).setHasChoosed(false);
+            data.get(i).setDeliveryState(0);
             data.get(i).setDistrictPosition(-1);
         }
         notifyDataSetChanged();
@@ -70,7 +74,7 @@ public class MainLayerAdapter extends SimpleRecAdapter<MainLayerBean, MainLayerA
         holder.tv_layer.setText(data.get(position).getLayer());
         holder.tv_plate.setText(data.get(position).getPlateLayer());
 
-        if (data.get(position).isHasChoosed()) {
+        if (data.get(position).getDeliveryState()>0) {
             if (districtData != null && districtData.length > position) {
                 holder.tv_choosed.setText(districtData[data.get(position).getDistrictPosition()]);
             }
@@ -94,7 +98,7 @@ public class MainLayerAdapter extends SimpleRecAdapter<MainLayerBean, MainLayerA
 
         }
 
-        if (data.get(position).isHasChoosed()) {
+        if (data.get(position).getDeliveryState()>0) {
 //            holder.tv_choosed.setTextSize(context.getResources().getDimension(R.dimen.dp_16));
             holder.tv_choosed.getPaint().setFakeBoldText(true);
         } else {

@@ -23,7 +23,8 @@ public class SettingModel {
         String[] names=context.getResources().getStringArray(R.array.setting);
         int[] images=new int[]{ R.drawable.ic_charge,R.drawable.ic_kitchen, R.drawable.ic_clear,R.drawable.ic_system_bar, R.drawable.ic_status,R.drawable.ic_volume,
                 R.drawable.ic_entry,R.drawable.ic_floor,
-                R.drawable.ic_password,R.drawable.ic_update};
+//                R.drawable.ic_password,
+                R.drawable.ic_update};
 
         for (int i=0;i<names.length;i++) {
             list.add(new SettingBean(images[i], names[i]));

@@ -49,7 +49,7 @@ public class TaskArriveAdapter extends SimpleRecAdapter<MainLayerBean, TaskArriv
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tv_layer.setText(data.get(position).getLayer());
 
-        if (data.get(position).isHasChoosed()) {
+        if (data.get(position).getDeliveryState()>0) {
             int disPosition = data.get(position).getDistrictPosition();
             if (disPosition >= 0 && disPosition < districts.length) {
                 holder.tv_district.setText(districts[disPosition]);
@@ -85,8 +85,10 @@ public class TaskArriveAdapter extends SimpleRecAdapter<MainLayerBean, TaskArriv
             holder.tv_state.setTextSize(context.getResources().getDimension(R.dimen.sp_6));
 
             holder.iv_gig.setVisibility(View.INVISIBLE);
-            if (data.get(position).isHasChoosed()){
-                if (position<checkedIndex){
+            if (data.get(position).getDeliveryState()>0){
+                if (data.get(position).getDeliveryState()==3){
+                    holder.tv_state.setText(context.getResources().getString(R.string.state_cancel));
+                }else if (data.get(position).getDeliveryState()==2){
                     holder.tv_state.setText(context.getResources().getString(R.string.state_complete));
                 }else {
                     holder.tv_state.setText(context.getResources().getString(R.string.state_not_arrive));

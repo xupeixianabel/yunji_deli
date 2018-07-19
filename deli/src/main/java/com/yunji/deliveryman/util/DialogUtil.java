@@ -2,6 +2,9 @@ package com.yunji.deliveryman.util;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.media.AudioManager;
+import android.os.CountDownTimer;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.yunji.deliveryman.DeliApplication;
@@ -18,13 +22,17 @@ import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.adapter.CancelTaskAdapter;
 import com.yunji.deliveryman.adapter.TaskArriveAdapter;
 import com.yunji.deliveryman.base.BaseMvpActivity;
+import com.yunji.deliveryman.bean.BusTaskChangeEvent;
 import com.yunji.deliveryman.bean.MainLayerBean;
 import com.yunji.deliveryman.bean.TaskBean;
+import com.yunji.deliveryman.bus.BusProvider;
 import com.yunji.deliveryman.mvpV.MainActivity;
 import com.yunji.sdk.YunjiConfig;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DialogUtil {
     public static Dialog estopDialog(Activity context) {
@@ -139,7 +147,7 @@ public class DialogUtil {
 
 
         dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.show();
         return dialog;
 
@@ -185,9 +193,10 @@ public class DialogUtil {
                         selectedNum++;
                         if (i == 0) {
                             DeliApplication.yunjiApiDeli.cancelTask(null);
-                        } else if (data.get(i).isChecked()) {
-                            MyConst.tasks.remove(i);
+                            DeliApplication.yunjiApiDeli.cancelTask(null);
                         }
+                        TaskBean district = MyConst.tasks.remove(i);
+                        BusProvider.getBus().post(new BusTaskChangeEvent(district.getLayer()));
                     }
                 }
 
@@ -210,4 +219,100 @@ public class DialogUtil {
 
     }
 
+
+    public static Dialog voiceSettingDialog(final Activity context) {
+        if (context == null) {
+            return null;
+        }
+        if (context.isFinishing()) {
+            return null;
+        }
+        final Dialog dialog = new Dialog(context, R.style.nomalDialog);
+        dialog.setContentView(R.layout.dialog_voice_setting);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        SeekBar seekBar = dialog.findViewById(R.id.seekBar);
+        Button btn_confirm = dialog.findViewById(R.id.btn_confirm);
+
+        final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        seekBar.setMax(maxVolume);
+
+        //获取当前音量
+        int currentVolume = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+        seekBar.setProgress(currentVolume);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser) {
+                    //设置系统音量
+                    am.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
+                    int currentVolume = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+                    seekBar.setProgress(currentVolume);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        dialog.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
+        dialog.show();
+        return dialog;
+
+
+    }
+
+
+  /*  public static Dialog chargeCancelTaskDialog(final Activity context, View.OnClickListener listener) {
+        if (context == null) {
+            return null;
+        }
+        if (context.isFinishing()) {
+            return null;
+        }
+        final Dialog dialog = new Dialog(context, R.style.nomalDialog);
+        dialog.setContentView(R.layout.dialog_charge_cancel_task);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+        final Button btn_confirm = dialog.findViewById(R.id.btn_confirm);
+        Button btn_cancel = dialog.findViewById(R.id.btn_cancel);
+        btn_confirm.setOnClickListener(listener);
+        btn_cancel.setOnClickListener(listener);
+
+        final String excuteNow = context.getResources().getString(R.string.excute_now);
+        CountDownTimer timer1 = new CountDownTimer(10 * 1000, 1000) {
+            @Override
+            public void onTick(long timeLeft) {
+                btn_confirm.setText(excuteNow + "(" + (timeLeft / 1000) + "s)");
+            }
+
+            @Override
+            public void onFinish() {
+                btn_confirm.performClick();
+            }
+        };
+        timer1.start();
+
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
+        dialog.show();
+        return dialog;
+
+
+    }*/
 }

@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/rl_title"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        android:background="@color/theme_green">
+        android:background="@color/theme_green"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:id="@+id/rl_back"
@@ -86,17 +85,29 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rc_setting"
-        android:layout_marginTop="@dimen/dp_40"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-       />
+        android:layout_marginTop="@dimen/dp_40"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_state"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_30"
+        android:text=""
+        android:textColor="@color/gray_66"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintRight_toLeftOf="@+id/tv_version" />
 
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:text="1.0.1"
+        android:textColor="@color/gray_66"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

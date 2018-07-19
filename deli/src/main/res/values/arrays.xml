@@ -38,7 +38,7 @@
         <item>声音设置</item>
         <item>点位录入</item>
         <item>设置层数</item>
-        <item>修改密码</item>
+        <!--<item>修改密码</item>-->
         <item>升级版本</item>
     </string-array>
 

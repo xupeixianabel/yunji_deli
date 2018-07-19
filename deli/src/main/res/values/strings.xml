@@ -21,12 +21,14 @@
     <string name="choose_district">请选择要送餐的区域</string>
     <string name="go_delivery_first">我要出发送餐，我正在前往%s区送餐</string>
     <string name="go_delivery">我正在前往%s区送餐</string>
+    <string name="go_kitchen">我正在前往厨房</string>
     <string name="arrvive_kitcken">已到达厨房</string>
     <string name="arrvive_marker">%s区餐桌餐来了，请%s餐盘取餐，小心烫</string>
 
 
     <string name="please_take_meal">请取餐</string>
     <string name="no_data">空</string>
+    <string name="state_cancel">已取消</string>
     <string name="state_complete">已完成</string>
     <string name="state_not_pull">未放置</string>
     <string name="state_not_arrive">未到达</string>
@@ -54,4 +56,9 @@
     <string name="task_delivery">%s区送餐</string>
     <string name="please_choose_task">请选择要取消的任务</string>
 
+
+    <string name="charging">充电中！！！</string>
+    <string name="charging_hint">机器人当前充电中，如果是充电线连接，请手动拔取充电线，以免造成意外。</string>
+    <string name="excute_now">执行任务</string>
+    <string name="connectinon_error">当前状态未连接，请稍后再试。</string>
 </resources>

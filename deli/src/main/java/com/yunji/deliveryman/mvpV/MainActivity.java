@@ -1,6 +1,5 @@
 package com.yunji.deliveryman.mvpV;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -9,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.yunji.deliveryman.MyConst;
 import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.adapter.MainDistrictAdapter;
 import com.yunji.deliveryman.adapter.MainLayerAdapter;
@@ -18,8 +18,7 @@ import com.yunji.deliveryman.bean.MainDistrictBean;
 import com.yunji.deliveryman.bean.MainLayerBean;
 import com.yunji.deliveryman.core.RobotStateService;
 import com.yunji.deliveryman.mvpP.MainPresent;
-import com.yunji.deliveryman.util.DialogUtil;
-import com.yunji.deliveryman.util.SpeechUtil;
+import com.yunji.deliveryman.util.SharedPrefsUtil;
 
 import java.util.ArrayList;
 
@@ -36,15 +35,25 @@ public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
 
     MainLayerAdapter layerAdapter;
     MainDistrictAdapter districtAdapter;
+    int layerNum ;
 
     @Override
     protected void onResume() {
         super.onResume();
         RobotStateService.getInstance().setRobotStateCallBack(getP());
+        int shareNum = SharedPrefsUtil.get(MyConst.PLAT_LAYER, 4);
+        if (layerNum!=0 && shareNum != layerNum) {
+            if (layerAdapter!=null){
+                layerAdapter.setCheckedIndex(0);
+                layerNum=shareNum;
+                setLayerNum(layerNum);
+            }
+        }
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        layerNum= SharedPrefsUtil.get(MyConst.PLAT_LAYER, 4);
         getP().initPermission();
         setAdapter();
     }
@@ -78,7 +87,7 @@ public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
                 testApi();
                 break;
             case R.id.tv_start_task:
-                getP().checkTable((ArrayList<MainLayerBean>) layerAdapter.getDataSource());
+                getP().checkCharging((ArrayList<MainLayerBean>) layerAdapter.getDataSource());
                 break;
         }
     }
@@ -88,11 +97,9 @@ public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
 //        getP().speechUtil.speaking("are you ok ");
 
 
-
-
     }
 
-    public void setLayer(int layer) {
+    public void setLayerNum(int layer) {
         if (layer > 0 && layer <= 4) {
             layerAdapter.setData(getP().getLayerData(layer));
             districtAdapter.setCheckedIndex(-1);
@@ -104,12 +111,12 @@ public class MainActivity extends BaseMvpLifeActivity<MainPresent> {
         layerAdapter.setDistrictData(getP().getDistrictList());
         recycler_left.setLayoutManager(new LinearLayoutManager(context));
         recycler_left.setAdapter(layerAdapter);
-        layerAdapter.setData(getP().getLayerData(4));
+        layerAdapter.setData(getP().getLayerData(layerNum));
         layerAdapter.setRecItemClick(new RecyclerItemCallback<MainLayerBean, MainLayerAdapter.ViewHolder>() {
             @Override
             public void onItemClick(int position, MainLayerBean model, int tag, MainLayerAdapter.ViewHolder holder) {
                 super.onItemClick(position, model, tag, holder);
-                if (model.isHasChoosed()) {
+                if (model.getDeliveryState() > 0) {
                     districtAdapter.setCheckedIndex(model.getDistrictPosition());
                 } else {
                     districtAdapter.setCheckedIndex(-1);

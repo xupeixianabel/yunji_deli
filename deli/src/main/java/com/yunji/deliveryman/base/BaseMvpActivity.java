@@ -1,7 +1,10 @@
 package com.yunji.deliveryman.base;
 
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
@@ -54,5 +57,21 @@ public abstract class BaseMvpActivity<P extends IPresent> extends XActivity<P> {
     }
 
 
-
+    /**
+     * 屏蔽系统自带的调节音量控件
+     *屏蔽返回键
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            am.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_LOWER, 0);
+        } else if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP) {
+            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            am.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_RAISE, 0);
+        }
+        return true;
+    }
 }

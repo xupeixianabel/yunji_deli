@@ -67,7 +67,7 @@ public class SpeechUtil {
      */
     public void speaking(String text) {
         // 非空判断
-      /*  if (TextUtils.isEmpty(text)) {
+        if (TextUtils.isEmpty(text)) {
             return;
         }
         int code = mTts.startSpeaking(text, mTtsListener);
@@ -79,7 +79,7 @@ public class SpeechUtil {
             } else {
                 Toast.makeText(mContext, "语音合成失败,错误码: " + code, Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
 
     }
 

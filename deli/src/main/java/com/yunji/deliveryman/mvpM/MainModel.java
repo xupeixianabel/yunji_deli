@@ -25,8 +25,19 @@ public class MainModel  {
         String[] layers = context.getResources().getStringArray(R.array.layer);
         String[] plate = context.getResources().getStringArray(R.array.plates);
         List<MainLayerBean> list = new ArrayList<MainLayerBean>();
-        for (int i = 0; i < length; i++) {
-            list.add(new MainLayerBean(layers[i], plate[i], -1, false));
+        if (length==4) {
+            for (int i = 0; i < length; i++) {
+                list.add(new MainLayerBean(layers[i], plate[i], -1, 0));
+            }
+        }else if (length==3){
+            list.add(new MainLayerBean(layers[0], plate[0], -1, 0));
+            list.add(new MainLayerBean(layers[1], plate[1], -1, 0));
+            list.add(new MainLayerBean(layers[2], plate[3], -1, 0));
+        }else if (length==2){
+            list.add(new MainLayerBean(layers[0], plate[0], -1, 0));
+            list.add(new MainLayerBean(layers[2], plate[3], -1, 0));
+        }else {
+            list.add(new MainLayerBean(layers[0], plate[0], -1, 0));
         }
         return list;
     }

@@ -6,15 +6,15 @@ public class MainLayerBean implements Serializable{
     private String layer;
     private String plateLayer;
     private int districtPosition;
-    private boolean hasChoosed;
 
+    private int deliveryState;//0未放置，1放置，未到达，2放置已完成，3放置已取消。
     public MainLayerBean() {
     }
-    public MainLayerBean(String layer, String plateLayer, int districtPosition, boolean hasChoosed) {
+    public MainLayerBean(String layer, String plateLayer, int districtPosition, int deliveryState) {
         this.layer = layer;
         this.plateLayer = plateLayer;
         this.districtPosition = districtPosition;
-        this.hasChoosed = hasChoosed;
+        this.deliveryState = deliveryState;
     }
 
     public String getLayer() {
@@ -41,11 +41,11 @@ public class MainLayerBean implements Serializable{
         this.districtPosition = districtPosition;
     }
 
-    public boolean isHasChoosed() {
-        return hasChoosed;
+    public int getDeliveryState() {
+        return deliveryState;
     }
 
-    public void setHasChoosed(boolean hasChoosed) {
-        this.hasChoosed = hasChoosed;
+    public void setDeliveryState(int deliveryState) {
+        this.deliveryState = deliveryState;
     }
 }

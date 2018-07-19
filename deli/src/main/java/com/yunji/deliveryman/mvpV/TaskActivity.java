@@ -15,8 +15,10 @@ import com.yunji.deliveryman.R;
 import com.yunji.deliveryman.adapter.SettingAdapter;
 import com.yunji.deliveryman.base.BaseMvpLifeActivity;
 import com.yunji.deliveryman.base.RecyclerItemCallback;
+import com.yunji.deliveryman.bean.BusTaskChangeEvent;
 import com.yunji.deliveryman.bean.MainLayerBean;
 import com.yunji.deliveryman.bean.SettingBean;
+import com.yunji.deliveryman.bus.BusProvider;
 import com.yunji.deliveryman.core.RobotStateService;
 import com.yunji.deliveryman.mvpP.SettingPresent;
 import com.yunji.deliveryman.mvpP.TaskPresent;
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.functions.Consumer;
 
 public class TaskActivity extends BaseMvpLifeActivity<TaskPresent> {
     @BindView(R.id.wave)
@@ -39,7 +42,7 @@ public class TaskActivity extends BaseMvpLifeActivity<TaskPresent> {
     ImageView iv_smile;
 
     public ArrayList<MainLayerBean> layerBeans;
-    private int[] imgIds=new int[]{R.drawable.ic_tasking_a,R.drawable.ic_tasking_b,R.drawable.ic_tasking_c,R.drawable.ic_tasking_d,R.drawable.ic_tasking_kitchen};
+    private int[] imgIds = new int[]{R.drawable.ic_tasking_a, R.drawable.ic_tasking_b, R.drawable.ic_tasking_c, R.drawable.ic_tasking_d, R.drawable.ic_tasking_kitchen};
     public Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -52,14 +55,29 @@ public class TaskActivity extends BaseMvpLifeActivity<TaskPresent> {
     @Override
     protected void onResume() {
         super.onResume();
-        RobotStateService.getInstance().setRobotStateCallBack(getP());
+       if (!getP().ifFinish()){
+            if (taskChanged){
+                DeliApplication.yunjiApiDeli.cancelTask(null);
+                getP().dismissDialog();
+                getP().startTask(false,true);
+                changeDistrictImage(MyConst.tasks.get(0).getDistrictPosition());
+            }
+           RobotStateService.getInstance().setRobotStateCallBack(getP());
+       }
+
+
+
+     /*  if (!getP().ifFinish() && taskChanged){
+            taskChanged=false;
+           getP().startTask(true,true);
+       }*/
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         try {
             layerBeans = (ArrayList<MainLayerBean>) getIntent().getSerializableExtra("data");
-            getP().startTask(true);
+            getP().startTask(true,true);
             wave.addWave();
         } catch (Exception e) {
             finish();
@@ -91,5 +109,29 @@ public class TaskActivity extends BaseMvpLifeActivity<TaskPresent> {
 
     public void changeDistrictImage(int districtPosition) {
         iv_target.setImageResource(imgIds[districtPosition]);
+    }
+
+    @Override
+    public boolean useEventBus() {
+        return true;
+    }
+
+   public boolean taskChanged;
+    @Override
+    public void bindEvent() {
+        BusProvider.getBus().toFlowable(BusTaskChangeEvent.class)
+                .subscribe(new Consumer<BusTaskChangeEvent>() {
+                    @Override
+                    public void accept(BusTaskChangeEvent taskChangeEvent) throws Exception {
+                        taskChanged=true;
+
+                        String layer=taskChangeEvent.getLayer();
+                        for(MainLayerBean bean:layerBeans){
+                            if (layer.equals(bean.getLayer())){
+                                bean.setDeliveryState(3);
+                            }
+                        }
+                    }
+                });
     }
 }

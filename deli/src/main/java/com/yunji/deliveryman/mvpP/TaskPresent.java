@@ -1,9 +1,9 @@
 package com.yunji.deliveryman.mvpP;
 
 import android.app.Dialog;
-import android.os.Message;
 import android.view.View;
 
+import com.orhanobut.logger.Logger;
 import com.yunji.deliveryman.DeliApplication;
 import com.yunji.deliveryman.MyConst;
 import com.yunji.deliveryman.R;
@@ -27,11 +27,14 @@ public class TaskPresent extends XPresent<TaskActivity> implements RobotStateSer
         switch (stateBean.getData().getState()) {
             case "DELIVERY_START"://任务开始
                 taskState = MyConst.DELIVERY_START;
+                dismissDialog();
                 break;
             case "DELIVERY_END"://任务结束
                 taskState = MyConst.DELIVERY_END;
-                DeliApplication.yunjiApiDeli.cancelTask(null);
-                showDialogTaskEnd(stateBean);
+                if (!ifFinish() && !getV().taskChanged) {
+                    showDialogTaskEnd(stateBean);
+                    cancelTask();
+                }
                 break;
             case "ACTION_CANCELED"://任务取消
                 taskState = MyConst.ACTION_CANCELED;
@@ -41,61 +44,76 @@ public class TaskPresent extends XPresent<TaskActivity> implements RobotStateSer
                 break;
             case "BATTERY_CHARGING"://充电中
                 taskState = MyConst.BATTERY_CHARGING;
+                ifFinish();
                 break;
 
 
         }
     }
 
+    public boolean ifFinish() {
+        if (finish || getV().isFinishing()){
+            return true;
+        }else if (MyConst.tasks == null || MyConst.tasks.size() == 0) {
+            cancelTask();
+            getV().finish();
+            return true;
+        }
+        return false;
+    }
+
 
     private void showDialogTaskEnd(YJDeliTaskStateBean stateBean) {
         if (stateBean.getData().getTarget().equals("E")) {
             SpeechUtil.getInstance().speaking(getV().getResources().getString(R.string.arrvive_kitcken));
+            cancelTask();
+            MyConst.tasks.clear();
             getV().finish();
             return;
         }
 
 
         if (dialogTaskEnd == null || !dialogTaskEnd.isShowing()) {
-            if (MyConst.tasks != null && MyConst.tasks.size() > 0) {
-                TaskBean task = MyConst.tasks.get(0);
-                speak(task);
-              /*  int position=0;
-                String[] districts=getV().getResources().getStringArray(R.array.Points);
-                String target=  stateBean.getData().getTarget();
-                for (int i=0;i<getV().layerBeans.size();i++){
-                    int j=getV().layerBeans.get(i).getDistrictPosition();
-                    if (j>=0 && j<districts.length){
-                        if (target.equals(districts[j])){
-                            position=i;
-                            break;
-                        }
-                    }
-                }*/
-                int position = 0;
-                String layer = task.getLayer();
-                if (layer.equals("F1")) {
-                    position = 0;
-                } else if (layer.equals("F2")) {
-                    position = 1;
-                } else if (layer.equals("F3")) {
-                    position = 2;
-                } else if (layer.equals("F4")) {
-                    position = 3;
-                }
-
-                dialogTaskEnd = DialogUtil.quCanDialog(getV(), getV().layerBeans, position, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        MyConst.tasks.remove(0);
-                        startTask(false);
-                        dialogTaskEnd.dismiss();
-                        dialogTaskEnd = null;
-                    }
-                });
+            TaskBean task = MyConst.tasks.get(0);
+            speak(task);
+            int position = 0;
+            String layer = task.getLayer();
+            if (layer.equals("F1")) {
+                position = 0;
+            } else if (layer.equals("F2")) {
+                position = 1;
+            } else if (layer.equals("F3")) {
+                position = 2;
+            } else if (layer.equals("F4")) {
+                position = 3;
             }
+
+            final int finalPosition = position;
+            dialogTaskEnd = DialogUtil.quCanDialog(getV(), getV().layerBeans, finalPosition, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        getV().layerBeans.get(finalPosition).setDeliveryState(2);
+                        MyConst.tasks.remove(0);
+                        startTask(false, true);
+                        dismissDialog();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     }
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (!ifFinish()) {
+                SpeechUtil.getInstance().speaking(speakStr);
+                getV().handler.postDelayed(this, 30000);
+            }
+        }
+    };
 
     public void speak(TaskBean task) {
         String str1 = task.getDistrict();
@@ -110,70 +128,81 @@ public class TaskPresent extends XPresent<TaskActivity> implements RobotStateSer
             str2 = "最下层";
         }
         speakStr = String.format(getV().getResources().getString(R.string.arrvive_marker), str1, str2);
-        startSpeak();
+        SpeechUtil.getInstance().speaking(speakStr);
+        getV().handler.postDelayed(runnable, 30000);
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            SpeechUtil.getInstance().speaking(speakStr);
-            getV().handler.postDelayed(this, 6000);
-        }
-    };
 
-    private void startSpeak() {
-        getV().handler.postDelayed(runnable, 60000);
-
-    }
-
-    public void startTask(boolean first) {
-        if (MyConst.tasks != null && MyConst.tasks.size() > 0  &&getV()!=null) {
+    public void startTask(boolean first, boolean ifSpeak) {
+        if (!ifFinish()) {
             getV().changeDistrictImage(MyConst.tasks.get(0).getDistrictPosition());
             getV().handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    taskNoback(MyConst.tasks.get(0).getDistrict());
+                    if (!ifFinish()) {
+                        getV().taskChanged=false;
+                        taskNoback(MyConst.tasks.get(0).getDistrict());
+                    }
                 }
             }, 2000);
-            String spkStr = "";
-            if (first) {
-                spkStr = String.format(getV().getResources().getString(R.string.go_delivery_first), MyConst.tasks.get(0).getDistrict());
-            } else {
-                spkStr = String.format(getV().getResources().getString(R.string.go_delivery), MyConst.tasks.get(0).getDistrict());
+
+            if (ifSpeak) {
+                String spkStr = "";
+                String district= MyConst.tasks.get(0).getDistrict();
+                if("E".equals(district)){
+                    spkStr =getV().getResources().getString(R.string.go_kitchen);
+                }else   if (first) {
+                    spkStr = String.format(getV().getResources().getString(R.string.go_delivery_first),district);
+                } else {
+                    spkStr = String.format(getV().getResources().getString(R.string.go_delivery),district);
+                }
+                SpeechUtil.getInstance().speaking(spkStr);
             }
-            SpeechUtil.getInstance().speaking(spkStr);
         }
 
 
     }
 
     private void taskNoback(String marker) {
-        DeliApplication.yunjiApiDeli.taskNoBack(new YunjiCallBack<YJDeliTaskNoback>() {
+        DeliApplication.yunjiApiDeli.taskNoBack(marker, new YunjiCallBack<YJDeliTaskNoback>() {
             @Override
             public void onError(String s) {
-                getV().handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startTask(false);
-                    }
-                }, 2000);
+                Logger.e("task noback fail");
+                startTask(false, false);
             }
 
             @Override
             public void onSuccess(YJDeliTaskNoback yjDeliTaskNoback) {
-//                MyConf.tasks.remove(0);
+                Logger.e("task noback success");
             }
-        }, marker);
+        });
+    }
+    private void cancelTask(){
+        DeliApplication.yunjiApiDeli.cancelTask(new YunjiCallBack<String>() {
+            @Override
+            public void onError(String s) {
+                DeliApplication.yunjiApiDeli.cancelTask(null);
+            }
+            @Override
+            public void onSuccess(String s) {
+            }
+        });
     }
 
+
+    private boolean finish;
     @Override
     public void detachV() {
+        finish=true;
+        dismissDialog();
+        super.detachV();
+
+    }
+    public void dismissDialog(){
         if (dialogTaskEnd != null) {
             dialogTaskEnd.dismiss();
             dialogTaskEnd = null;
+            getV().handler.removeCallbacks(runnable);
         }
-        getV().handler.removeCallbacks(runnable);
-        super.detachV();
-
     }
 }
